@@ -7,9 +7,8 @@ class StorePicker extends React.Component {
     event.preventDefault();
     //grabbing text from box
     const storeId = this.storeInput.value;
-      console.log(storeId);
-      this.context.router.history.push("/store/${storeId}");
-
+    console.log(storeId);
+    this.props.history.push(`/store/${storeId}`);
   }
 
   render(){
