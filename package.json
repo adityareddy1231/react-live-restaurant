@@ -6,6 +6,7 @@
   "dependencies": {
     "autoprefixer-stylus": "0.14.0",
     "concurrently": "3.5.1",
+    "dotenv": "^6.1.0",
     "firebase": "^4.10.1",
     "prop-types": "^15.6.2",
     "re-base": "3.2.2",
@@ -23,6 +24,7 @@
     "build": "react-scripts build",
     "eject": "react-scripts eject",
     "styles": "stylus -u autoprefixer-stylus ./src/css/style.styl -o ./src/css/style.css",
-    "styles:watch": "stylus -u autoprefixer-stylus -w ./src/css/style.styl -o ./src/css/style.css"
+    "styles:watch": "stylus -u autoprefixer-stylus -w ./src/css/style.styl -o ./src/css/style.css",
+    "deploy": "ns ./build --cmd 'list ./content -s'"
   }
 }
