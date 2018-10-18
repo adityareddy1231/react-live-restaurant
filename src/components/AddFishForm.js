@@ -13,7 +13,6 @@ class AddFishForm extends React.Component {
   };
 
   createFish = event => {
-    console.log(this.nameRef.value);
     event.preventDefault();
     const fish = {
       name: this.nameRef.value || "Temporary Name",
