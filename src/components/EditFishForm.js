@@ -4,21 +4,24 @@ import PropTypes from "prop-types";
 class EditFishForm extends React.Component {
   static propTypes = {
     fish: PropTypes.shape({
+      status: PropTypes.string,
       image: PropTypes.string,
       name: PropTypes.string,
-      desc: PropTypes.string,
-      status: PropTypes.string,
-      price: PropTypes.number
-    }),
-    index: PropTypes.string,
-    updateFish: PropTypes.func
+      price: PropTypes.number,
+      desc: PropTypes.string
+    }).isRequired,
+    updateFish: PropTypes.func.isRequired,
+    deleteFish: PropTypes.func.isRequired,
+    index: PropTypes.string.isRequired
   };
+
   handleChange = e => {
     const updatedFish = {
       ...this.props.fish,
       [e.currentTarget.name]: e.currentTarget.value
     };
-    this.props.updateFish(this.props.index, updatedFish);
+    const key = this.props.index;
+    this.props.updateFish(key, updatedFish);
   };
   render() {
     return (
@@ -45,6 +48,7 @@ class EditFishForm extends React.Component {
           <option value="unavailable">Sold Out!</option>
         </select>
         <textarea
+          type="text"
           name="desc"
           onChange={this.handleChange}
           value={this.props.fish.desc}

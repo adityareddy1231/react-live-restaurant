@@ -9,43 +9,50 @@ class AddFishForm extends React.Component {
   imageRef = React.createRef();
 
   static propTypes = {
-    addFish: PropTypes.func
+    addFish: PropTypes.func.isRequired
   };
 
-  createFish = e => {
-    e.preventDefault();
+  createFish = event => {
+    console.log(this.nameRef.value);
+    event.preventDefault();
     const fish = {
-      name: this.nameRef.value.value,
-      price: parseFloat(this.priceRef.value.value),
-      status: this.statusRef.value.value,
-      desc: this.descRef.value.value,
-      image: this.imageRef.value.value
+      name: this.nameRef.value,
+      price: parseFloat(this.priceRef.value),
+      status: this.statusRef.value,
+      desc: this.descRef.value,
+      image: this.imageRef.value
     };
     this.props.addFish(fish);
-    e.currentTarget.reset();
+
+    event.currentTarget.reset();
   };
   render() {
     return (
       <form className="fish-edit" onSubmit={this.createFish}>
-        <input name="name" ref={this.nameRef} type="text" placeholder="Name" />
+        <input name="name" ref={(ref) => this.nameRef = ref} type="text" placeholder="Name" />
         <input
           name="price"
-          ref={this.priceRef}
+          ref={(ref) => this.priceRef = ref}
           type="text"
           placeholder="Price"
         />
-        <select name="status" ref={this.statusRef}>
+        <select name="status" ref={(ref) => this.statusRef = ref}>
           <option value="available">Fresh!</option>
           <option value="unavailable">Sold Out!</option>
         </select>
-        <textarea name="desc" ref={this.descRef} placeholder="Desc" />
+        <textarea
+          name="desc"
+          ref={(ref) => this.descRef = ref}
+          type="text"
+          placeholder="Desc"
+        />
         <input
           name="image"
-          ref={this.imageRef}
+          ref={(ref) => this.imageRef = ref}
           type="text"
           placeholder="Image"
         />
-        <button type="submit">+ Add Fish</button>
+        <button type="submit">+ AddFish</button>
       </form>
     );
   }
