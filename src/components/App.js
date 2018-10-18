@@ -6,6 +6,7 @@ import Inventory from "./Inventory";
 import sampleFishes from "../sample-fishes";
 import Fish from "./Fish";
 import base from "../base";
+require('dotenv').load();
 
 class App extends React.Component {
   state = {
@@ -51,6 +52,7 @@ class App extends React.Component {
     this.setState({ fishes });
   };
   loadSampleFishes = () => {
+    console.log(process.env)
     this.setState({ fishes: sampleFishes });
   };
   addToOrder = key => {

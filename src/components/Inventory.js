@@ -63,6 +63,7 @@ class Inventory extends React.Component {
     return (
       <div className="inventory">
         <h2>Inventory</h2>
+        
         {logout}
         {Object.keys(this.props.fishes).map(key => (
           <EditFishForm

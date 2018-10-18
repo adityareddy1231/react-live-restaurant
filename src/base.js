@@ -1,5 +1,6 @@
 import Rebase from 're-base';
 import firebase from 'firebase';
+require('dotenv').load();
 
 const config = {
     apiKey: "AIzaSyCdyP-45AnkL7xWzHfRsQJjsqhDh3TOM60",
